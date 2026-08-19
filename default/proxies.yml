@@ -1,0 +1,4 @@
+# Windows Security App - outbound proxy declarations.
+# This app queries Cribl Search internally via the platform fetch proxy
+# (relative URLs, no external hosts required). External endpoints go here
+# only if/when added later (e.g., threat intel lookups).

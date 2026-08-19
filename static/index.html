@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>window.CRIBL_APP_ID = '__dev__winsec-security';</script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Windows Security</title>
+    <link rel="stylesheet" href="./assets/style.css">
+  </head>
+  <body>
+    <div id="app">
+      <header class="app-header">
+        <div class="brand">
+          <h1>Windows Security</h1>
+          <span class="subtitle">Single-panel view across all Windows machines</span>
+        </div>
+        <div class="controls">
+          <label for="range">Time range</label>
+          <select id="range">
+            <option value="-1h">Last 1 hour</option>
+            <option value="-24h" selected>Last 24 hours</option>
+            <option value="-7d">Last 7 days</option>
+          </select>
+          <button id="refresh" class="btn btn-primary">Refresh</button>
+        </div>
+      </header>
+
+      <div id="status-bar" class="status-bar">Loading…</div>
+
+      <section class="posture" id="posture">
+        <div class="tile" data-stat="total_events"><div class="tile-value" id="stat-events">–</div><div class="tile-label">Security Events</div></div>
+        <div class="tile" data-stat="alerts"><div class="tile-value" id="stat-alerts">–</div><div class="tile-label">Alerts</div></div>
+        <div class="tile" data-stat="critical"><div class="tile-value danger" id="stat-critical">–</div><div class="tile-label">Critical</div></div>
+        <div class="tile" data-stat="hosts"><div class="tile-value" id="stat-hosts">–</div><div class="tile-label">Hosts</div></div>
+        <div class="tile" data-stat="failed_logons"><div class="tile-value warn" id="stat-failed">–</div><div class="tile-label">Failed Logons</div></div>
+      </section>
+
+      <section class="grid">
+        <div class="card" id="card-auth">
+          <h2>Authentication &amp; Account Changes</h2>
+          <table class="data-table"><thead><tr><th>Event</th><th>Host</th><th>User</th><th>Count</th></tr></thead><tbody id="tbl-auth"></tbody></table>
+        </div>
+        <div class="card" id="card-alerts">
+          <h2>MITRE-Mapped Alerts</h2>
+          <table class="data-table"><thead><tr><th>Severity</th><th>Technique</th><th>Tactic</th><th>Host</th><th>Count</th></tr></thead><tbody id="tbl-alerts"></tbody></table>
+        </div>
+        <div class="card" id="card-hosts">
+          <h2>Host Status</h2>
+          <table class="data-table"><thead><tr><th>Host</th><th>Events</th><th>Alerts</th></tr></thead><tbody id="tbl-hosts"></tbody></table>
+        </div>
+        <div class="card" id="card-mitre">
+          <h2>ATT&amp;CK Coverage</h2>
+          <div id="mitre-bars"></div>
+        </div>
+      </section>
+
+      <footer class="app-footer">
+        <span>Windows Security App · queries Cribl Search for the <code>winsec</code> worker group</span>
+      </footer>
+    </div>
+    <script type="module" src="./assets/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "winsec-security",
+  "version": "0.1.0",
+  "displayName": "Windows Security",
+  "description": "Single-panel security view across all Windows machines - authentication, account changes, process activity, persistence, and MITRE ATT&CK-mapped alerts"
+}
